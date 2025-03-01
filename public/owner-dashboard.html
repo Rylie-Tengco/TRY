@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="This is RG Scaffolding's e-commerce website.">
+        <meta name="keywords" content="scaffolding, scaffold rental, scaffold sale, scaffolding services">
+        <meta name="author" content="Rhundei Zen Ballesteros, Mariel Gravidez, Julian Rylie Tengco">
+        
+        <title>Owner Dashboard | RG Scaffolding</title>
+
+        <link rel="icon" href="images/rgscaffolding-logo-32px.png" type="image/png">
+        
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/owner-dashboard.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+
+<body>
+    <nav class="main-nav">
+        <div class="logo-container">
+            <img src="images/rgscaffolding-logo-500px.png" alt="RG Scaffolding Logo" class="logo">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#" class="active">Dashboard</a>
+            <div class="user-info">
+                <span id="ownerName"></span>
+                <a href="#" id="logoutBtn" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Order Management Dashboard</h1>
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div class="stat-info">
+                        <h3>Total Orders</h3>
+                        <p id="totalOrders">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <div class="stat-info">
+                        <h3>Pending Orders</h3>
+                        <p id="pendingOrders">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-check-circle"></i>
+                    <div class="stat-info">
+                        <h3>Completed Orders</h3>
+                        <p id="completedOrders">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-controls">
+            <div class="filter-section">
+                <label for="statusFilter">Filter by Status:</label>
+                <select id="statusFilter">
+                    <option value="all">All Orders</option>
+                    <option value="processing">Processing</option>
+                    <option value="out-for-delivery">Out for Delivery</option>
+                    <option value="delivered">Delivered</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+
+            <div class="search-section">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="orderSearch" placeholder="Search orders by ID or customer name...">
+                </div>
+                <button onclick="searchOrders()" class="search-btn">Search</button>
+            </div>
+        </div>
+
+        <div class="orders-container">
+            <div id="ordersList" class="orders-grid">
+                <!-- Orders will be dynamically loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Order Details Modal -->
+    <div class="modal" id="orderDetailsModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Order Details</h3>
+            <div class="order-details">
+                <!-- Order details will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 RG Scaffolding. All rights reserved.</p>
+        <br>
+        <p>Developers:
+            <ul>
+                <li>Ballesteros, Rhundei Zen</li>
+                <li>Gravidez, Mariel</li>
+                <li>Tengco, Julian Rylie</li>
+            </ul>
+        </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/owner-dashboard.js"></script>
+</body>
+</html>

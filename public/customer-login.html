@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="This is RG Scaffolding's e-commerce website.">
+        <meta name="keywords" content="scaffolding, scaffold rental, scaffold sale, scaffolding services">
+        <meta name="author" content="Rhundei Zen Ballesteros, Mariel Gravidez, Julian Rylie Tengco">
+    
+        <title>Customer Login | RG Scaffolding</title>
+
+        <link rel="icon" href="images/rgscaffolding-logo-32px.png" type="image/png">
+        
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+
+<body>
+    <div class="login-container">
+        <div class="slideshow">
+            <img src="images/landing_page/background1.jfif" alt="Background 1">
+            <img src="images/landing_page/background2.jpg" alt="Background 2">
+            <img src="images/landing_page/background3.jfif" alt="Background 3">
+            <img src="images/landing_page/background4.jfif" alt="Background 4">
+            <img src="images/landing_page/background5.jfif" alt="Background 5">
+        </div>
+        <div class="login-box">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('login')">Login</button>
+                <button class="tab-btn" onclick="switchTab('signup')">Sign Up</button>
+            </div>
+            
+            <form id="loginForm" class="form-section active" onsubmit="return handleLogin(event)">
+                <h2>Welcome back!</h2>
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="password" required placeholder="Enter your password">
+                </div>
+                <button type="submit" class="login-button">Sign In</button>
+            </form>
+
+            <form id="signupForm" class="form-section" onsubmit="return handleSignup(event)">
+                <h2>Create Account</h2>
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" name="name" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <input type="email" id="signupEmail" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" name="password" required placeholder="Create a password">
+                </div>
+                <div class="form-group">
+                    <label for="signupPhone">Phone Number</label>
+                    <input type="tel" id="signupPhone" name="phone" required placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                    <label for="signupAddress">Address</label>
+                    <textarea id="signupAddress" name="address" required placeholder="Enter your complete address"></textarea>
+                </div>
+                <button type="submit" class="login-button">Create Account</button>
+            </form>
+
+            <div class="back-link">
+                <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/customer-auth.js"></script>
+</body>
+</html>

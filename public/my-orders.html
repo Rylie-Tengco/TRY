@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="This is RG Scaffolding's e-commerce website.">
+        <meta name="keywords" content="scaffolding, scaffold rental, scaffold sale, scaffolding services">
+        <meta name="author" content="Rhundei Zen Ballesteros, Mariel Gravidez, Julian Rylie Tengco">
+
+        <title>My Orders | RG Scaffolding</title>
+
+        <link rel="icon" href="images/rgscaffolding-logo-32px.png" type="image/png">
+
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/my-orders.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+
+<body>
+    <nav class="main-nav">
+        <div class="logo-container">
+            <img src="images/rgscaffolding-logo-500px.png" alt="RG Scaffolding Logo" class="logo">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="cart.html" class="cart-link">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a>
+            <a href="#" class="active">My Orders</a>
+            <a href="#" id="logoutBtn">Logout</a>
+        </div>
+    </nav>
+
+    <main class="orders-container">
+        <h2>My Orders</h2>
+
+        <div class="orders-content">
+            <div class="order-filters">
+                <select id="statusFilter">
+                    <option value="all">All Orders</option>
+                    <option value="processing">Processing</option>
+                    <option value="out-for-delivery">Out for Delivery</option>
+                    <option value="delivered">Delivered</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+
+            <div class="orders-list">
+                <!-- Orders will be dynamically loaded here -->
+                <div class="order-card">
+                    <div class="order-header">
+                        <div class="order-info">
+                            <h3>Order #12345</h3>
+                            <p class="order-date">Ordered on: March 6, 2025</p>
+                        </div>
+                        <div class="order-status">
+                            <span class="status-badge processing">Processing</span>
+                        </div>
+                    </div>
+
+                    <div class="order-items">
+                        <div class="order-item">
+                            <img src="images/product1.jpg" alt="Product">
+                            <div class="item-details">
+                                <h4>Product Name</h4>
+                                <p class="quantity">Quantity: 1</p>
+                                <p class="price">₱0.00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="order-footer">
+                        <div class="total-amount">
+                            <span>Total:</span>
+                            <span class="amount">₱0.00</span>
+                        </div>
+                        <button class="view-details-btn">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Order Details Modal -->
+    <div class="modal" id="orderDetailsModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Order Details</h3>
+            <div class="order-details">
+                <div class="order-info">
+                    <p><strong>Order ID:</strong> #12345</p>
+                    <p><strong>Order Date:</strong> March 6, 2025</p>
+                    <p><strong>Status:</strong> <span class="status-badge processing">Processing</span></p>
+                </div>
+                <div class="shipping-info">
+                    <h4>Shipping Information</h4>
+                    <p><strong>Name:</strong> Lorem, ipsum.</p>
+                    <p><strong>Address:</strong> Lorem, ipsum.</p>
+                    <p><strong>Phone:</strong> Lorem, ipsum.</p>
+                </div>
+                <div class="order-items">
+                    <h4>Items</h4>
+                    <!-- Order items will be listed here -->
+                </div>
+                <div class="order-summary">
+                    <div class="summary-item">
+                        <span>Subtotal</span>
+                        <span>₱0.00</span>
+                    </div>
+
+                    <div class="summary-item total">
+                        <span>Total</span>
+                        <span>₱0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/my-orders.js"></script>
+</body>
+</html>

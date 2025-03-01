@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="This is RG Scaffolding's e-commerce website.">
+        <meta name="keywords" content="scaffolding, scaffold rental, scaffold sale, scaffolding services">
+        <meta name="author" content="Rhundei Zen Ballesteros, Mariel Gravidez, Julian Rylie Tengco">
+    
+        <title>Shop | RG Scaffolding</title>
+    
+        <link rel="icon" href="images/rgscaffolding-logo-32px.png" type="image/png">
+    
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/shop.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+    
+<body>
+    <nav class="main-nav">
+        <div class="logo-container">
+            <img src="images/rgscaffolding-logo-500px.png" alt="RG Scaffolding Logo" class="logo">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#" class="active">Shop</a>
+            <a href="cart.html" class="cart-link">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a>
+            <a href="my-orders.html">My Orders</a>
+            <a href="#" id="logoutBtn">Logout</a>
+        </div>
+    </nav>
+
+    <main class="shop-container">
+        <aside class="filters">
+            <div class="filter-section">
+                <h3>Categories</h3>
+                <div class="category-buttons">
+                    <button class="category-btn active" data-category="all">All Products</button>
+                    <button class="category-btn" data-category="sale">For Sale</button>
+                    <button class="category-btn" data-category="rent">For Rent</button>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h3>Price Range</h3>
+                <div class="price-range">
+                    <input type="range" id="priceRange" min="0" max="1000" step="10">
+                    <div class="price-inputs">
+                        <input type="number" id="minPrice" placeholder="Min">
+                        <input type="number" id="maxPrice" placeholder="Max">
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <section class="products-grid">
+            <!-- Products will be dynamically loaded here -->
+            <div class="product-card">
+                <img src="images/product1.jpg" alt="Product">
+                <div class="product-info">
+                    <h3>Product Name</h3>
+                    <p class="price">₱0.00</p>
+                    <p class="type">For Sale</p>
+                    <p class="description">Product description goes here...</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Load scripts in the correct order -->
+    <script src="js/main.js"></script>
+    <script src="js/shop.js"></script>
+</body>
+</html>

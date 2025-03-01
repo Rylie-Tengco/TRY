@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="This is RG Scaffolding's e-commerce website.">
+        <meta name="keywords" content="scaffolding, scaffold rental, scaffold sale, scaffolding services">
+        <meta name="author" content="Rhundei Zen Ballesteros, Mariel Gravidez, Julian Rylie Tengco">
+
+        <title>Owner Login | RG Scaffolding</title>
+
+        <link rel="icon" href="images/rgscaffolding-logo-32px.png" type="image/png">
+        
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+
+<body>
+    <div class="login-container">
+        <div class="slideshow">
+            <img src="images/landing_page/background1.jfif" alt="Background 1">
+            <img src="images/landing_page/background2.jpg" alt="Background 2">
+            <img src="images/landing_page/background3.jfif" alt="Background 3">
+            <img src="images/landing_page/background4.jfif" alt="Background 4">
+            <img src="images/landing_page/background5.jfif" alt="Background 5">
+        </div>
+        <div class="login-box">
+            <form id="ownerLoginForm" onsubmit="return handleOwnerLogin(event)">
+                <h2>Owner Access</h2>
+                <p class="login-subtitle">Please enter your credentials to continue</p>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                </div>
+                <button type="submit" class="login-button">Sign In</button>
+            </form>
+
+            <div class="back-link">
+                <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/owner-auth.js"></script>
+</body>
+</html>

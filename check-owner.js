@@ -1,0 +1,1 @@
+const supabase = require('./db/supabase'); async function checkOwner() { try { const { data, error } = await supabase.from('users').select('*').eq('role', 'owner'); if (error) throw error; console.log('Owner accounts:', JSON.stringify(data, null, 2)); } catch (e) { console.error('Error:', e); } } checkOwner();

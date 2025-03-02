@@ -1,5 +1,5 @@
 // Import the Supabase client from src/lib/supabaseClient.js
-import { supabase } from '../../src/lib/supabaseClient.js';
+import { supabase } from '../../src/lib/supabaseClient';
 
 // Switch between login and signup forms
 function switchTab(tab) {

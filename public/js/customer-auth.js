@@ -1,3 +1,6 @@
+// Import the Supabase client from src/lib/supabaseClient.js
+import { supabase } from '../../src/lib/supabaseClient.js';
+
 // Switch between login and signup forms
 function switchTab(tab) {
     const loginForm = document.getElementById('loginForm');
@@ -18,23 +21,7 @@ function switchTab(tab) {
     }
 }
 
-async function simulateLogin(email, password) {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve({
-                token: 'dummy_token',
-                user: {
-                    id: 1,
-                    name: 'Juan Dela Cruz',
-                    email: email,
-                    role: 'customer'
-                }
-            });
-        }, 1000);
-    });
-}
-
-// Handle login form submission
+// Handle login form submission using Supabase auth.signIn
 async function handleLogin(event) {
     event.preventDefault();
 
@@ -51,9 +38,16 @@ async function handleLogin(event) {
     const password = document.getElementById('loginPassword').value.trim();
 
     try {
-        const response = await simulateLogin(email, password);
-        sessionStorage.setItem('token', response.token);
-        localStorage.setItem('token', response.token);
+        const { data, error } = await supabase.auth.signIn({ email, password });
+        if (error) {
+            throw error;
+        }
+        console.log("Login successful:", data);
+        // Save the access token if session is available.
+        if (data.session) {
+            sessionStorage.setItem('token', data.session.access_token);
+            localStorage.setItem('token', data.session.access_token);
+        }
         window.location.href = 'shop.html';
     } catch (error) {
         handleError(error);
@@ -63,22 +57,7 @@ async function handleLogin(event) {
     }
 }
 
-async function simulateSignup(userData) {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve({
-                token: 'dummy_token',
-                user: {
-                    id: 1,
-                    ...userData,
-                    role: 'customer'
-                }
-            });
-        }, 1000);
-    });
-}
-
-// Handle signup form submission
+// Handle signup form submission using Supabase auth.signUp
 async function handleSignup(event) {
     event.preventDefault();
 
@@ -97,12 +76,18 @@ async function handleSignup(event) {
     const phone = document.getElementById('signupPhone').value.trim();
     const address = document.getElementById('signupAddress').value.trim();
 
-    const userData = { name, email, password, phone, address };
-
     try {
-        const response = await simulateSignup(userData);
-        sessionStorage.setItem('token', response.token);
-        localStorage.setItem('token', response.token);
+        const { data, error } = await supabase.auth.signUp(
+            { email, password },
+            { data: { name, phone, address } }
+        );
+        if (error) {
+            throw error;
+        }
+        console.log("Signup successful:", data);
+        // If email confirmation is not required, data.session may be available.
+        sessionStorage.setItem('token', data.session?.access_token || '');
+        localStorage.setItem('token', data.session?.access_token || '');
         showNotification('Registration successful! Redirecting to shop...', 'success');
         setTimeout(() => {
             window.location.href = 'shop.html';
@@ -145,19 +130,19 @@ function validateForm(formId) {
     return isValid;
 }
 
-// Email validation
+// Email validation function
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
 }
 
-// Phone validation
+// Phone validation function
 function validatePhone(phone) {
     const re = /^\+?[\d\s-]{10,}$/;
     return re.test(phone);
 }
 
-// Initialize
+// Initialize blur event listeners for form inputs
 document.addEventListener('DOMContentLoaded', () => {
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {
@@ -173,3 +158,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Expose functions to the global scope so inline HTML event handlers can access them
+window.switchTab = switchTab;
+window.handleLogin = handleLogin;
+window.handleSignup = handleSignup;
